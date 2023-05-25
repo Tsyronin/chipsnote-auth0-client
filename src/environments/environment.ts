@@ -1,0 +1,10 @@
+export const environment = {
+    production: false,
+    auth: {
+      domain: 'dev-bamvnh63frx72jt4.us.auth0.com',
+      clientId: '0izDiD36HnfvQhqaWBwKI4YRsorbrrhP',
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    }
+  };
