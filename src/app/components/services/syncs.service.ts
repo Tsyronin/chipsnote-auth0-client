@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { Sync } from '../models/sync';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +10,34 @@ import { Observable } from 'rxjs';
 export class SyncsService {
 
   readonly baseUri: string = "https://chipsnote-main.up.railway.app";
+  readonly proxyUri: string = "/api";
+
 
   constructor(private readonly auth: AuthService,
-    private readonly _httpClient: HttpClient) { }
+    private readonly http: HttpClient) { }
   
     getAllSyncs(): Observable<Sync[]> {
-      return this._httpClient.get<Sync[]>(this.baseUri + '/me/sinks');
+      const headers = new HttpHeaders().set('Authorization', 'Bearer ' + 'cyrone');
+
+      return this.http.get<Sync[]>(this.baseUri + '/me/sinks', { headers }).pipe(
+        catchError((error) => {
+          // Handle any errors here
+          console.error(error);
+          throw error;
+        })
+      );
+
+      // this.http.get(this.baseUri, { headers }).subscribe(
+      //   (response) => {
+      //     // Handle the successful response here
+      //     console.log(response);
+      //   },
+      //   (error) => {
+      //     // Handle any errors here
+      //     console.error(error);
+      //   }
+      // );
+
+      // return this.http.get<Sync[]>(this.baseUri + '/me/sinks');
     }
 }

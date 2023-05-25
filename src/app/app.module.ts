@@ -8,6 +8,8 @@ import { SyncsComponent } from './components/syncs/syncs.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment } from 'src/environments/environment';
@@ -28,6 +30,7 @@ import { AuthHttpInterceptor } from '@auth0/auth0-angular';
     BrowserAnimationsModule,
     AuthModule.forRoot(environment.auth),
     MatToolbarModule,
+    MatGridListModule,
     HttpClientModule
   ],
   providers: [
