@@ -1,0 +1,7 @@
+<div class="container" [matMenuTriggerFor]="menu">
+    <mat-icon class="add-icon">add_circle</mat-icon>
+</div>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="openDialog()">Todoist</button>
+    <button mat-menu-item>Coming soon...</button>
+</mat-menu>

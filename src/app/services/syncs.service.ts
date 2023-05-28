@@ -9,7 +9,7 @@ import { Observable, catchError } from 'rxjs';
 })
 export class SyncsService {
 
-  readonly baseUri: string = "https://chipsnote-main.up.railway.app";
+  readonly baseUri: string = "https://chipsnote-main-api-auth.up.railway.app";
   readonly proxyUri: string = "/api";
 
 
@@ -17,9 +17,13 @@ export class SyncsService {
     private readonly http: HttpClient) { }
   
     getAllSyncs(): Observable<Sync[]> {
-      const headers = new HttpHeaders().set('Authorization', 'Bearer ' + 'cyrone');
+      //const headers = new HttpHeaders().set('Authorization', 'Bearer ' + 'cyrone');
+      this.auth.idTokenClaims$.subscribe((claims) => {
+        console.log(claims)
+      })
+      // console.log(this.auth.idTokenClaims$);
 
-      return this.http.get<Sync[]>(this.baseUri + '/me/sinks', { headers }).pipe(
+      return this.http.get<Sync[]>(this.baseUri + '/me/sinks').pipe(
         catchError((error) => {
           // Handle any errors here
           console.error(error);

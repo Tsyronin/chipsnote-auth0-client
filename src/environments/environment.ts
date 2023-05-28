@@ -5,6 +5,13 @@ export const environment = {
       clientId: '0izDiD36HnfvQhqaWBwKI4YRsorbrrhP',
       authorizationParams: {
         redirect_uri: window.location.origin
+      },
+      httpInterceptor: {
+        allowedList: [
+          {
+            uri: 'https://chipsnote-main-api-auth.up.railway.app/*'
+          }
+        ]
       }
     }
   };

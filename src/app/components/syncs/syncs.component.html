@@ -1,27 +1,9 @@
-<h1>My integrations </h1>
-<!-- <div *ngIf="auth.user$ | async as user">
-    <h2>Welcome</h2>
-    <p>{{ user.email }}</p>
-</div> -->
-
-<!-- <table>
-    <tr *ngFor="let sync of syncs; let i = index">
-      <td>
-        <p>
-          {{sync.name}}
-        </p>
-      </td>
-      <td>
-        <p>
-          {{sync.type}}
-        </p>
-      </td>
-    </tr>
-  </table> -->
-
-  <mat-grid-list cols="4" rowHeight="100px">
-    <mat-grid-tile
-        *ngFor="let sync of syncs">
-      {{sync.name}}
-    </mat-grid-tile>
-  </mat-grid-list>
+<h1>My integrations</h1>
+<mat-grid-list cols="4" rowHeight="100px" rowHeight="1:1">
+  <mat-grid-tile *ngFor="let sync of testSyncs">
+    <app-sync [sync]="sync"></app-sync>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <app-add-sync></app-add-sync>
+  </mat-grid-tile>
+</mat-grid-list>

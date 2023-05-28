@@ -1,0 +1,18 @@
+.container {
+    background-color:#9fa8da;
+    height: 300px;
+    width: 300px;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+}
+
+.primary {
+    border-style: solid;
+    border-width: 5px;
+    border-color: #673ab7;
+}
+
+
