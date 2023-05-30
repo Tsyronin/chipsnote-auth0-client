@@ -22,6 +22,7 @@ import { AuthHttpInterceptor } from '@auth0/auth0-angular';
 import { SyncComponent } from './components/sync/sync.component';
 import { AddSyncComponent } from './components/add-sync/add-sync.component';
 import { AddTodoistSyncDialogComponent } from './components/add-todoist-sync-dialog/add-todoist-sync-dialog.component';
+import { PostLoginComponent } from './components/post-login/post-login.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { AddTodoistSyncDialogComponent } from './components/add-todoist-sync-dia
         SyncsComponent,
         SyncComponent,
         AddSyncComponent,
-        AddTodoistSyncDialogComponent
+        AddTodoistSyncDialogComponent,
+        PostLoginComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },

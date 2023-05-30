@@ -3,8 +3,8 @@
     <span>ChipsNote</span>
     <span class="example-spacer"></span>
     <span *ngIf="auth.user$ | async as user">{{ user.email }}</span>
-    <span (click)="auth.logout()" class="button" *ngIf="auth.isAuthenticated$ | async">Logout</span>
-    <span (click)="auth.loginWithRedirect()" class="button" *ngIf="!(auth.isAuthenticated$ | async)">Login</span>
+    <span (click)="logout()" class="button" *ngIf="auth.isAuthenticated$ | async">Logout</span>
+    <span (click)="login()" class="button" *ngIf="!(auth.isAuthenticated$ | async)">Login</span>
   </mat-toolbar-row>
 </mat-toolbar>
 
@@ -21,6 +21,6 @@
   <app-syncs></app-syncs>
 </div>
 
-<!-- <body>
+<body>
   <router-outlet></router-outlet>
-</body> -->
+</body>

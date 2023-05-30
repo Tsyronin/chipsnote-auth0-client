@@ -1,17 +1,18 @@
 export const environment = {
     production: false,
     auth: {
-      domain: 'dev-bamvnh63frx72jt4.us.auth0.com',
-      clientId: '0izDiD36HnfvQhqaWBwKI4YRsorbrrhP',
+      domain: 'dev-0yq4lvav42q3zwmb.us.auth0.com',
+      clientId: 'r75VwjagN2oAW9nBtGeAMiwsBThj2Y2A',
+      
       authorizationParams: {
-        redirect_uri: window.location.origin
-      },
-      httpInterceptor: {
-        allowedList: [
-          {
-            uri: 'https://chipsnote-main-api-auth.up.railway.app/*'
-          }
-        ]
-      }
+        redirect_uri: window.location.origin + '/post-login'
+      }//,
+      // httpInterceptor: {
+      //   allowedList: [
+      //     {
+      //       uri: 'https://chipsnote-main-api-auth0.up.railway.app/*'
+      //     }
+      //   ]
+      // }
     }
   };

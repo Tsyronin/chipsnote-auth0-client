@@ -1,3 +1,4 @@
+import { Token } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 
@@ -14,5 +15,20 @@ export class AppComponent implements OnInit {
   constructor(public auth: AuthService) {}
 
   ngOnInit(): void {
+  }
+
+  login() {
+    this.auth.idTokenClaims$.subscribe((claims) => {
+      localStorage.setItem("token", claims.__raw);
+      console.log("token", claims.__raw)
+    })
+
+    this.auth.loginWithRedirect()
+  }
+
+  logout() {
+    localStorage.removeItem("token");
+    
+    this.auth.logout()
   }
 }
