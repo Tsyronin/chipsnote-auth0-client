@@ -1,8 +1,15 @@
 export interface Sync {
-    id: string,
+    id?: string,
     name: string,
     type: string,
-    access_type?: string,
-    access_id?: string,
-    is_primary: boolean
+    api_token?: string,
+    is_primary?: boolean
+}
+
+export class SyncToPost implements Sync {
+    id?: string;
+    name: string;
+    type: string;
+    api_token?: string;
+    is_primary?: boolean
 }

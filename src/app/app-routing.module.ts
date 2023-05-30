@@ -12,11 +12,12 @@ const routes: Routes = [
   {
     component: PostLoginComponent, 
     path: 'post-login'
-  },
-  {
-    component: LandingComponent, 
-    path: ''
-  },
+  }
+  //,
+  // {
+  //   component: LandingComponent, 
+  //   path: ''
+  // },
 ];
 
 @NgModule({

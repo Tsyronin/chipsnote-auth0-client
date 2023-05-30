@@ -58,4 +58,16 @@ export class SyncsComponent implements OnInit {
     )
   }
 
+  relodeSyncs() {
+    this._syncsService.getAllSyncs().subscribe(
+      (syncs) => {
+        this.syncs = syncs;
+        console.log(syncs);
+      },
+      (error) => {
+        console.error(error);
+      }
+    )
+  }
+
 }

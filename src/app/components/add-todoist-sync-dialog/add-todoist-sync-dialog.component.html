@@ -1,1 +1,16 @@
-<p>add-todoist-sync-dialog works!</p>
+<h1 mat-dialog-title>Add new Todoist Sync</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Sync Name</mat-label>
+    <input matInput [(ngModel)]="data.name">
+  </mat-form-field>
+  <p>You can get your API token <a href="https://todoist.com/app/settings/integrations/developer" target="_blank">here</a></p>
+  <mat-form-field>
+    <mat-label>Todoist key</mat-label>
+    <input matInput [(ngModel)]="data.key">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCloseClick()">Close</button>
+  <button mat-button [mat-dialog-close]="{data: data, success: true}" cdkFocusInitial>Add sync</button>
+</div>

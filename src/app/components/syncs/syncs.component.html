@@ -4,6 +4,6 @@
     <app-sync [sync]="sync"></app-sync>
   </mat-grid-tile>
   <mat-grid-tile>
-    <app-add-sync></app-add-sync>
+    <app-add-sync (newSyncEvent)="relodeSyncs()"></app-add-sync>
   </mat-grid-tile>
 </mat-grid-list>
