@@ -1,6 +1,6 @@
 <mat-toolbar color="primary" class="navbar">
   <mat-toolbar-row>
-    <span>ChipsNote</span>
+    <span>chipsnote</span>
     <span class="example-spacer"></span>
     <span *ngIf="auth.user$ | async as user">{{ user.email }}</span>
     <span (click)="logout()" class="button" *ngIf="auth.isAuthenticated$ | async">Logout</span>

@@ -1,7 +1,10 @@
-<div class="container" 
+<div class="container" [matMenuTriggerFor]="menu"
 [ngClass]="{'primary': sync?.is_primary === true}">
     <div class="container-content">
-        <p><b>Type:</b> '{{sync?.type}}'</p>
-        <p><b>Name:</b> '{{sync?.name}}'</p>
+        <p><b>Name:</b> {{sync?.name}}</p>
+        <p><b>Type:</b> {{sync?.type}}</p>
     </div>
 </div>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="makePrimary()">Make primary</button>
+</mat-menu>

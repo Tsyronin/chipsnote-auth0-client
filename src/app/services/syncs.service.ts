@@ -37,4 +37,20 @@ export class SyncsService {
       })
     );
   }
+
+  makeSyncPrimary(syncId: string): Observable<string> {
+    var token: string = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+
+    var body = {
+      "sink_id": syncId
+    }
+
+    return this.http.post<string>(this.baseUri + '/me/sinks/primary', body, { headers }).pipe(
+      catchError((error) => {
+        console.error(error);
+        throw error;
+      })
+    );
+  }
 }

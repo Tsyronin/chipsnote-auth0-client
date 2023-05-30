@@ -49,7 +49,7 @@ export class SyncsComponent implements OnInit {
   ngOnInit(): void {
     this._syncsService.getAllSyncs().subscribe(
       (syncs) => {
-        this.syncs = syncs;
+        this.syncs = syncs.sort((a, b) => a.name.localeCompare(b.name));
         console.log(syncs);
       },
       (error) => {
@@ -61,7 +61,7 @@ export class SyncsComponent implements OnInit {
   relodeSyncs() {
     this._syncsService.getAllSyncs().subscribe(
       (syncs) => {
-        this.syncs = syncs;
+        this.syncs = syncs.sort((a, b) => a.name.localeCompare(b.name));
         console.log(syncs);
       },
       (error) => {

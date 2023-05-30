@@ -1,7 +1,7 @@
 <h1>My integrations</h1>
 <mat-grid-list cols="4" rowHeight="100px" rowHeight="1:1">
   <mat-grid-tile *ngFor="let sync of syncs">
-    <app-sync [sync]="sync"></app-sync>
+    <app-sync [sync]="sync" (primaryUpdatedEvent)="relodeSyncs()"></app-sync>
   </mat-grid-tile>
   <mat-grid-tile>
     <app-add-sync (newSyncEvent)="relodeSyncs()"></app-add-sync>
