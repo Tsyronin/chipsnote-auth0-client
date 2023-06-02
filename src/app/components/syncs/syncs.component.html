@@ -1,5 +1,5 @@
 <h1>My integrations</h1>
-<mat-grid-list cols="4" rowHeight="100px" rowHeight="1:1">
+<mat-grid-list [cols]="breakpoint" rowHeight="100px" rowHeight="1:1" (window:resize)="onResize($event)">
   <mat-grid-tile *ngFor="let sync of syncs">
     <app-sync [sync]="sync" (primaryUpdatedEvent)="relodeSyncs()"></app-sync>
   </mat-grid-tile>

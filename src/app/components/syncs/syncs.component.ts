@@ -42,11 +42,13 @@ export class SyncsComponent implements OnInit {
       is_primary: false
     }
   ]
+  breakpoint: number;
   
   constructor(public auth: AuthService,
     private readonly _syncsService: SyncsService) {}
 
   ngOnInit(): void {
+    this.adaptGridCols(window.innerWidth);
     this._syncsService.getAllSyncs().subscribe(
       (syncs) => {
         this.syncs = syncs.sort((a, b) => a.name.localeCompare(b.name));
@@ -68,6 +70,22 @@ export class SyncsComponent implements OnInit {
         console.error(error);
       }
     )
+  }
+
+  onResize(event) {
+    this.adaptGridCols(event.target.innerWidth)
+  }
+
+  adaptGridCols(width){
+    if (width >= 1250){
+      this.breakpoint = 4
+    } else if (width >= 950) {
+      this.breakpoint = 3
+    } else if (width >= 650) {
+      this.breakpoint = 2
+    } else{
+      this.breakpoint = 1
+    }
   }
 
 }
